@@ -2,6 +2,12 @@
 #include <i386-linux-gnu/curl/curl.h>
 #include "comm.h"
 
+// if we are interested in
+// 1) number of peaks in a piece of wav file
+// 2) maxium decibel value of this way, then
+// our post string should look like "peaks=2&max=78.9"
+// the url could be "http://www.cc.puv.fi/~e1900307/php/sound.php"
+
 void sendpost(char *url, char *post){
 	CURL *curl;
 	CURLcode res;
