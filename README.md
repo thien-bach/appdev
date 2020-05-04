@@ -15,20 +15,20 @@ List of contents
 7. Credits and acknowledgements
 
 
-1.Configuration instructions
+1. Configuration instructions
 	In this section we should give users inforamtion of how to configure the operating
 	system, software environment, libraries, etc. to run this application.
 
-2.Installation instructions
+2. Installation instructions
 	In this section we should give users information of how to install this application,
 	what file not included in this package should be added. what command/operation should
 	used to install this application.
 
-3.Operating instructions
+3. Operating instructions
 	In this section we should give users information of how to run this application, e.g.,
 	what command-line arguments can be given and what do they mean.
 
-4.File manifest
+4. File manifest
 	we should list all the files of this application at here with short descriptions.
 
 	List of files:
@@ -43,6 +43,12 @@ List of contents
 	sound.c		contains functions that read .wav file.
 	sound.h		contains constant definitions and function declarations of sound.c.
 	main.c		contains necessary code to run and test the function in sound.c.
+	puttysize.php	contains the code to read and write the post data from the main.c 
+					and make the putty file to store data.
 
-5.	Copyright
+5. Copyright
 	This application follows GPLv2 copyright.
+6. Contact information
+	Email: thienbach13@gmail.com
+	Phone number: 01217602514
+7. Credits and acknowledgements
