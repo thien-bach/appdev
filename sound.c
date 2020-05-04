@@ -2,6 +2,7 @@
 #include "sound.h"
 #include <math.h>
 #include "screen.h"
+#include "comm.h"
 // function definitions
 WAVheader readwavhdr(FILE *fp){
 	WAVheader myh;
@@ -27,7 +28,9 @@ void wavdata(WAVheader h, FILE *fp){
 	// for sample rate 16000sps, we need to read 2000 samples to calculate a
 	// "Fast" decibel calue. A decibel value is always calculated by RMS
 	// (ROOT MEAN SQUARE) formula.
-	int peaks = 0, flag = 0;
+	int peaks = 0, flag = 0; 
+	double max=0.0;
+	char postdata[100];
 	short samples[SIZE];
 	for(int i=0; i<BARS; i++){	//to read 5-sec wave file, we have 40 data
 		fread(samples, sizeof(samples), 1, fp);
@@ -52,6 +55,12 @@ void wavdata(WAVheader h, FILE *fp){
 			if (flag==1);
 				flag=0;
 		}
+		if(max<1.0)
+			max=dB;
+		else{
+			if(dB>max)
+				max=dB;
+		}
 		drawbar(i+1,(int) dB/3);
 		gotoXY(1,1);
 		setfgcolor(CYAN);
@@ -62,6 +71,10 @@ void wavdata(WAVheader h, FILE *fp){
 		gotoXY(1,150);
 		setfgcolor(YELLOW);
 		printf("Peaks: %d\n", peaks);
+		gotoXY(2,1);
+		printf("Max: %lf\n", max);	
 #endif
 	}
+	sprintf(postdata, "Peaks=%d&MaxdB=%lf", peaks, max);
+	sendpost(URL, postdata);
 }

@@ -40,6 +40,9 @@ List of contents
 	comm.h		contains constant definitions and function declarations of comm.c
 	testcurl.c	contains necessary code  to run and test the function in comm.c.
 	makefile	contains code to complie and run all the C file in this folder.
+	sound.c		contains functions that read .wav file.
+	sound.h		contains constant definitions and function declarations of sound.c.
+	main.c		contains necessary code to run and test the function in sound.c.
 
 5.	Copyright
 	This application follows GPLv2 copyright.
